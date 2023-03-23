@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import WIAM from "iam-react";
 import { HomeView } from "../views";
 
-const wiam = new WIAM("85cb4fbd-08bd-4e2e-9837-15e70f531541", {
+const wiam = new WIAM("930aa070-9535-484f-b33b-8e4557765022", {
   serviceWorker: "g.js",
   recordPageViews: true
 })
