@@ -5,18 +5,22 @@ import { useEffect } from "react";
 import WIAM from "wiam";
 import { HomeView } from "../views";
 
-const wiam = new WIAM("930aa070-9535-484f-b33b-8e4557765022", {
+const wiam = new WIAM("f4cd1044-e8f3-4808-89a9-50b6f57a3d92", {
   serviceWorker: "g.js",
   recordPageViews: true
 })
 
 const Home: NextPage = (props) => {
   const { publicKey } = useWallet()
+  let running = false
+  
   useEffect(() => {
-    if(publicKey) {
-      console.log("123", publicKey.toBase58())
+    if(publicKey && !running) {
+      running = true
       wiam.setWallet(publicKey.toString())
     }
+    
+    running = false
   }, [publicKey])
   return (
     <div>
